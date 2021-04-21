@@ -1,0 +1,68 @@
+.user {
+  margin-left: 100px;
+  width: 250px;
+  display: flex;
+}
+
+.image {
+  border-radius: 50%;
+  background-color: #909090;
+  width: 40px;
+  height: 40px;
+}
+
+.text-name {
+  position: absolute;
+  width: 28px;
+  height: 24px;
+  font-family: "Courier New", Courier, monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 0px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-left: 10px;
+  top: calc(50% - 24px / 2);
+  color: #000000;
+}
+
+.dropdown {
+  margin-left: 10px;
+  /* background-color: red; */
+  width: 150px;
+  display: flex;
+}
+
+.name-1 {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 40%;
+  font-family: "Courier New", Courier, monospace;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  /* display: flex; */
+  align-items: center;
+  letter-spacing: 0.44px;
+  color: #333333;
+}
+
+.name-2 {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 60%;
+  bottom: 0%;
+  font-family: "Courier New", Courier, monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  color: #9c9c9c;
+}
