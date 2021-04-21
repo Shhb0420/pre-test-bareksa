@@ -2,6 +2,7 @@
   margin-left: 100px;
   width: 250px;
   display: flex;
+  margin-right: 15rem;
 }
 
 .image {
@@ -65,4 +66,35 @@
   line-height: 16px;
   letter-spacing: 0.4px;
   color: #9c9c9c;
+}
+
+.toggle-drop {
+  position: absolute;
+  padding: 8% 100%;
+}
+
+.searching {
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  height: 57px;
+  padding: 10px 10px;
+  /* margin-right: 10px; */
+  margin-left: 15rem;
+}
+
+.lonceng {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.getDate {
+  background-color: #f5f5f5;
+  color: black;
+  padding: 15px 0;
+  padding-right: 50px;
+}
+
+.dateNow {
+  margin-top: 0;
+  margin-bottom: 0;
 }
