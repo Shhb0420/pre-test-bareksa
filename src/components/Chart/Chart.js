@@ -3,7 +3,7 @@ import "./Chart.css";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { Polar, Pie, Line, Bar } from "react-chartjs-2";
+import { Polar, Pie, Line } from "react-chartjs-2";
 import { API_URL } from "../../utils/environment";
 import axios from "axios";
 
@@ -14,15 +14,14 @@ const Chart = () => {
   const [user, setUser] = useState([]);
   const [status, setStatus] = useState([]);
   const [day, setDay] = useState([]);
-
-  const handleSelect = () => {
-    alert("hiya");
-  };
-  const selectionRange = {
-    startDate: new Date(),
-    endDate: new Date(),
-    key: "selection",
-  };
+  const [data, setData] = useState([]);
+  const [selectionRange, setSelectionRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: "selection",
+    },
+  ]);
 
   useEffect(() => {
     getData();
@@ -98,6 +97,7 @@ const Chart = () => {
         setUser(Object.keys(users));
         setStatus(Object.values(users));
         setDay(Object.keys(date));
+        setData(data);
       })
       .catch((err) => {
         console.log(err);
@@ -236,7 +236,12 @@ const Chart = () => {
 
       <div className="d-flex" style={{ marginBottom: "15px" }}>
         <div className="dateRange">
-          <DateRange onChange={handleSelect} ranges={[selectionRange]} />
+          <DateRange
+            editableDateInputs={true}
+            onChange={(item) => setSelectionRange([item.selection])}
+            moveRangeOnFirstSelection={false}
+            ranges={selectionRange}
+          />
         </div>
         <div className="table-orders">
           <p style={{ marginTop: "15px" }}>Orders</p>
@@ -252,30 +257,51 @@ const Chart = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>21 April 2021</td>
-                <td>21 April 2021</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>21 April 2021</td>
-                <td>21 April 2021</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>21 April 2021</td>
-                <td>21 April 2021</td>
-              </tr>
+              {data.map((item) => {
+                return (
+                  <tr>
+                    <th scope="row">{item.order_id}</th>
+                    <td>
+                      <div
+                        style={{
+                          backgroundColor:
+                            item.status === "completed"
+                              ? "#789764"
+                              : item.status === "pending"
+                              ? "#E59849"
+                              : "#D66D4B",
+                          color: "white",
+                          width: 90,
+                          textAlign: "center",
+                          borderRadius: 5,
+                        }}
+                      >
+                        {item.status}
+                      </div>
+                    </td>
+                    <td>{item.full_name}</td>
+                    <td>{item.location}</td>
+                    <td>
+                      {new Date(item.start_date).toLocaleString("id-ID", {
+                        day: "numeric",
+                        year: "numeric",
+                        month: "numeric",
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}
+                    </td>
+                    <td>
+                      {new Date(item.due_date).toLocaleString("id-ID", {
+                        day: "numeric",
+                        year: "numeric",
+                        month: "numeric",
+                        hour: "numeric",
+                        minute: "numeric",
+                      })}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
