@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import Logo from "../../assets/icon/Logo.png";
