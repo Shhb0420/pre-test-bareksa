@@ -73,7 +73,13 @@ const Navbar = () => {
 
       {/* Tanggal */}
       <div className="getDate d-flex justify-content-end">
-        <p className="dateNow">21 April 2021</p>
+        <p className="dateNow">
+          {new Date().toLocaleString("id-ID", {
+            day: "numeric",
+            year: "numeric",
+            month: "long",
+          })}
+        </p>
       </div>
     </>
   );

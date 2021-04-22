@@ -1,0 +1,30 @@
+.conversion {
+  border: 1px solid black;
+  width: 328px;
+  height: 472px;
+  margin-left: 15px;
+  margin-top: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.revenue {
+  border: 1px solid black;
+  width: 712px;
+  height: 472px;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  padding: 10px;
+}
+
+.dateRange {
+  margin-left: 15px;
+}
+
+.table-orders {
+  margin-left: 15px;
+  width: 80%;
+  margin-right: 15px;
+}
