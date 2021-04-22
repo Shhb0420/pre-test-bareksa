@@ -28,3 +28,19 @@
   width: 80%;
   margin-right: 15px;
 }
+
+.text-total {
+  color: #9c9c9c;
+  font-weight: 100;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.jumlah-revenue {
+  color: #333333;
+  font-weight: bolder;
+  font-size: 24px;
+  margin-top: -15px;
+  margin-left: 10px;
+}
